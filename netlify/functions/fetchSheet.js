@@ -5,9 +5,9 @@ exports.handler = async (event, context) => {
   require("dotenv").config(); // Load local .env variables (only for development)
 
   // Use secrets in environment variables
-  const SHEET_API_KEY = process.env.ALTON_GOOGLESHEET_API_KEY; 
-  const SHEET_ID = process.env.ALTON_SHEET_ID;
-  const SHEET_NAME = process.env.ALTON_SHEET_NAME;
+  const SHEET_API_KEY = process.env.STOCKWELL_GOOGLESHEET_API_KEY; 
+  const SHEET_ID = process.env.STOCKWELL_SHEET_ID;
+  const SHEET_NAME = process.env.STOCKWELL_SHEET_NAME;
 
 
   try {

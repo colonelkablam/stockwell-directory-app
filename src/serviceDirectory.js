@@ -165,7 +165,7 @@ const filteredActivities = useMemo(() => {
     <div className="container">
       <Header /> {/* Add the Header */}
 
-      <h1>Alton Community Activity Directory</h1>
+      <h1>Stockwell Community Activity Directory</h1>
 
       {/* Search Bar */}
       <div className="search-bar">
