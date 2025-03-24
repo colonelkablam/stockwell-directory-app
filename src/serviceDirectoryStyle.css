@@ -1,0 +1,721 @@
+/* Define variables */
+:root {
+  --tile-panel-colour: #2d8ff7;
+
+  --tile-panel-border-colour: #0050a7;
+  --tile-panel-active-colour: rgb(149, 216, 255);
+
+  --list-panel-colour: #29b130;
+  --list-panel-border-colour: #1ea53d;
+  --list-panel-active-colour: #70e676;
+  
+  --week-panel-colour: #8966c9;
+  --week-panel-border-colour: #6441a5;
+  --week-panel-active-colour: #c297d8;
+  
+  --pinned-panel-colour: rgb(241, 145, 0);
+  --pinned-panel-border-colour: rgb(196, 127, 25);
+  --pinned-panel-active-colour: rgb(255, 186, 83);
+}
+
+.container {
+  max-width: 1160px; /* Limits the container width to 1210px */
+  min-width: 375px; /* Limits the container width to 1210px */
+
+  margin: 0 auto; /* Centers the container horizontally */
+  padding: 0 20px; /* Adds padding for smaller screens */
+}
+
+body, html {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  background-color: rgb(242, 242, 242);
+}
+
+body {
+  overflow: scroll;
+
+}
+
+h1 {
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.bold-para {
+  font-weight: 600;
+}
+
+.small-para {
+  font-size: x-small;
+}
+
+.warning-text-box {
+  display: flex; /* Enables flexbox for this container */
+  justify-content: center; /* Centers elements horizontally */
+  align-items: center; /* Centers elements vertically */
+  padding: 5px; /* Optional: Adds some padding around the content */
+
+}
+
+.warning-text-box > p {
+  display: flex; /* Ensures the paragraph elements behave like a flex container */
+  align-items: center; /* Centers the icon and text vertically */
+  gap: 8px; /* Adds spacing between the icon and the text */
+  margin: 0; /* Removes default paragraph margin for better alignment */
+  font-size: x-small;
+}
+
+.warning-icon {
+  color: orangered;
+  stroke-width: 3px;
+  min-width: 30px;
+}
+
+
+.inline-div {
+  display: inline;
+}
+
+
+/* General card styling */
+.card {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  width: 360px; /* Fixed width for uniform sizing */
+}
+
+/* .cards-view as the primary card container */
+.cards-view {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 360px));
+  gap: 20px; 
+  justify-content: center;
+}
+
+.day-section {
+  margin-bottom: 50px; /* Adds space between day sections */
+}
+
+.card-title-and-checkboxes {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Pushes title left and checkbox right */
+  margin-bottom: 10px;
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+  flex-grow: 1; /* Title takes up available space */
+  text-align: center;
+}
+
+.info-icon-container {
+  display: flex;
+  align-items: flex-start; /* Aligns content within checkbox to the top */
+  align-self: flex-start; /* Aligns the checkbox to the top of the container */
+}
+
+.info-icon {
+  cursor: pointer;
+  color: #007bff; /* Replace with your desired color (hex, rgb, or named color) */
+  transition: transform 0.2s ease;
+}
+
+.info-icon:hover {
+
+  color: #6fb5ff; /* Optional: Add a hover effect */
+  transform: scale(1.5);
+}
+
+.pin-icon-container {
+  display: flex;
+  align-items: flex-start; /* Aligns content within checkbox to the top */
+  align-self: flex-start; /* Aligns the checkbox to the top of the container */
+}
+
+.pin-icon {
+  cursor: pointer;
+  fill: none;
+  transition: transform 0.2s ease;
+  color: rgb(167, 167, 167);
+}
+
+.pin-icon:hover {
+  transform: scale(1.5);
+}
+
+.pin-icon.pinned {
+  fill: rgb(255, 39, 39);
+  color: rgb(255, 39, 39); /* Indicate pinned status */
+}
+
+.print-icon {
+  cursor: pointer;
+  fill: none;
+  transition: transform 0.2s ease;
+  color: rgb(167, 167, 167);
+}
+
+.print-icon:hover {
+  transform: scale(1.5);
+  color: rgb(1, 148, 13);
+
+}
+
+.back-icon {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0px 0px;
+  transition: transform 0.2s ease;
+
+}
+
+.back-icon:hover {
+  color: #7cbbff;
+  transform: scale(1.5);
+}
+
+.card-description {
+  color: #666;
+  margin: 0 0 5px 0;
+}
+
+.scrollable-textbox {
+  display: -webkit-box; /* Required for line clamping */
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3; /* Limit to 3 lines for clamping */
+  line-clamp: 3; /* Non-prefixed for future compatibility */
+  overflow-y: auto; /* Enables vertical scroll if content exceeds 3 lines */
+  overflow-x: hidden; /* Hides any horizontal overflow */
+  min-height: 4.0em; /* Minimum height for 3 lines */
+  max-height: 4.0em; /* Maximum height to allow clamping and scrolling */
+  line-height: 1.2em; /* Set line height to match 3 lines in 4.5em */
+}
+
+.two-line-textbox {
+  display: -webkit-box; /* Required for line clamping */
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* Limit to 2 lines */
+  line-clamp: 2; /* Future-proofing: non-prefixed property */
+  overflow: hidden; /* Hide overflow text */
+  min-height: 3em; /* Ensures the box is always 2 lines high */
+  max-height: 3em; /* Limits the box to 2 lines */
+  line-height: 1.5em; /* Set line height to match 2 lines in 3em */
+}
+
+.one-line-textbox {
+  display: -webkit-box; /* Required for line clamping */
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1; /* Limit to 2 lines */
+  line-clamp: 1; /* Future-proofing: non-prefixed property */
+  overflow: hidden; /* Hide overflow text */
+  min-height: 1.5em; /* Ensures the box is always 1 lines high */
+  max-height: 1.5em; /* Limits the box to 2 lines */
+  line-height: 1.5em; /* Set line height to match 2 lines in 3em */
+  min-width: 100%; /* Ensures the box is always 2 lines high */
+
+}
+
+.card-details {
+  padding: 10px;
+  border: 2px solid lightgray;
+  border-radius: 5px;
+}
+
+.card-cost {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #19963f;
+}
+
+.detail {
+  display: flex;
+  align-items: center;
+  gap: 5px ;
+  font-size: 14px;
+  background-color: rgb(255, 255, 255);
+  margin-top: 3px;
+}
+
+.detail a {
+  text-decoration: none;
+}
+
+.detail a:hover {
+  text-decoration: underline;
+}
+
+.detail-highlight {
+  background-color: rgb(228, 228, 228);
+  border-radius: 8px;
+}
+
+.icon-detail-highlight {
+  color: green;
+  font-weight: 600;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+}
+
+@media (max-width: 860px) {
+  .cards-view {
+    display: flex; /* Use Flexbox for alignment */
+    flex-direction: column; /* Stack cards vertically */
+    align-items: center; /* Center cards horizontally */
+  }
+
+  .card {
+    width: 100%; /* Adjust card width for a balanced look */
+    max-width: 100%; /* Set a maximum width for better readability */
+    margin: 0px 0; /* Add vertical spacing between cards */
+  }
+
+  .container {
+    padding: 0 10px; /* Adjust padding for smaller screens */
+  }
+
+  .pin-icon:hover {
+    transform: scale(1.0);
+  }
+
+  .info-icon:hover {
+    transform: scale(1.0);
+  }
+
+  .print-icon:hover {
+    transform: scale(1.0);
+    color: rgb(167, 167, 167);
+  }
+
+  .back-icon:hover {
+    transform: scale(1.0);
+  }
+}
+
+/* Filter button styles */
+.filter-section {
+  margin-bottom: 10px;
+}
+
+.filter-section-days {
+  margin-bottom: 10px;
+}
+
+.filter-section-checkbox {
+  display: flex;
+  height: 50px; /* Set a fixed height */
+  align-items: center; /* Center vertically */
+}
+
+.filter-section-checkbox > h3 {
+  width: 185px;
+}
+
+.enable-content {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.activity-count {
+  margin-left: 10px;
+  width: 155px;
+  font-size: 1em;
+  font-weight: bold;
+  text-align: center;
+  color: #aa0000;
+}
+
+.none-found {
+  color: #aa0000;
+}
+
+.found {
+  color: #008f07;
+}
+
+.no-search {
+  color: #0025cc;
+}
+
+.no-set-day-box {
+  margin-bottom: 10px;
+  margin-top: 20px;
+  font-size: medium;
+}
+
+.no-set-day-box > input {
+  width: 16px;
+  height: 16px;
+}
+
+.one-off-box {
+  margin-bottom: 10px;
+  font-size: medium;
+}
+
+.one-off-box > input {
+  width: 16px;
+  height: 16px;
+}
+
+.filter-section > h3{
+  margin: 20px 0 8px 0;
+  font-size: larger;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: space-between; /* Space between input and button */
+  align-items: center;
+  max-width: 600px; /* Optional: Set a max-width to align with the input */
+  margin-bottom: 10px;
+}
+
+.search-input {
+  width: 95%;
+  max-width: 740px; /* Adjusted to leave space for the button */
+  padding: 10px;
+  border: 2px solid #cccccc;
+  border-radius: 5px;
+}
+
+.clear-search-button {
+  padding: 8px 8px;
+  width: 110px; /* Fixed width */
+  min-width: 110px;
+  margin-left: 10px;
+  border: 2px solid rgb(255, 124, 124);
+  border-radius: 5px;
+  background-color: rgb(255, 190, 190);
+  cursor: pointer;
+  font-size: 14px;
+  text-align: center;
+}
+
+.distance-slider-bar {
+  display: flex;
+  justify-content: space-between; /* Space between input and button */
+  align-items: center;
+  max-width: 600px; /* Optional: Set a max-width to align with the input */
+  margin-bottom: 10px;
+}
+
+.distance-slider-bar > h3 {
+  font-size: medium;
+  text-align: center;
+  width: 210px;
+  padding: 0 5px;
+}
+
+.distance-slider-bar > input {
+  width: 100%;
+}
+
+.distance-slider-value {
+  width: 100px;
+  font-size: medium;
+  text-align: left;
+  padding: 0 0px 0 5px;
+}
+
+.postcode-input {
+  padding: 0px 8px;
+  width: 90; /* Fixed width */
+  max-width: 90px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-left: 5px;
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.filter-button {
+  padding: 8px 12px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #ffffff;
+  cursor: pointer;
+  font-size: 14px;
+  width: 100px;
+}
+
+
+.filter-button-all {
+  padding: 8px 12px;
+  margin: 5px;
+  border: 2px solid #919191;
+  border-radius: 5px;
+  background-color: #ffffff;
+  cursor: pointer;
+  font-size: 13px;
+  width: 100px;
+}
+
+.filter-button.active {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+.filter-section-days button:last-child {
+  display: none; /* Forces the last button to not diplay (no set day) - a bit of a hack but otherwise the system is good */
+}
+
+/* General tab button styling */
+.view-tabs {
+  padding-top: 20px;
+}
+
+.tab-button {
+  padding: 8px 0px;
+  margin: 0px 0px 0 0px;
+  border: 1px solid #ccc;
+  border-radius: 5px 5px 0 0; 
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  color: rgb(255, 255, 255);
+  width: 60px;
+}
+
+/* Tab colors for filing cabinet effect */
+.tab-button.tab-blue {
+  background-color: var(--tile-panel-colour);
+  border-color: var(--tile-panel-border-colour);
+}
+
+.tab-button.tab-green {
+  background-color: var(--list-panel-colour);
+  border-color: var(--list-panel-border-colour);
+}
+
+.tab-button.tab-purple {
+  background-color: var(--week-panel-colour);
+  border-color: var(--week-panel-border-colour);
+}
+
+.tab-button.tab-yellow {
+  position: relative;
+  background-color: var(--pinned-panel-colour);
+  border-color: var(--pinned-panel-border-colour);
+}
+
+.pinned-count {
+  background-color: red;
+  border-radius: 50%;
+  position: absolute;
+  display: flex; /* Optional, depending on your button layout */
+  align-items: center; /* Center content vertically */
+  justify-content: center; /* Center content horizontally */
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  padding: 0;
+  bottom: 26px;
+  left: 40px;
+}
+
+.pinned-count.hidden {
+  display: none;
+}
+
+.pinned-count > p{
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  position: absolute;
+  color: white;
+}
+
+/* Hover effects */
+.tab-button:hover {
+  filter: brightness(0.95);
+}
+
+/* Active state for selected tab */
+.tab-button.active.tab-blue {
+  background-color: var(--tile-panel-active-colour);
+  color: #000000;
+  border-color: var(--tile-panel-active-colour);
+}
+
+.tab-button.active.tab-green {
+  background-color: var(--list-panel-active-colour);
+  color: #000000;
+  border-color: var(--list-panel-active-colour);
+}
+
+.tab-button.active.tab-purple {
+  background-color: var(--week-panel-active-colour);
+  color: #000000;
+  border-color: var(--week-panel-active-colour);
+}
+
+.tab-button.active.tab-yellow {
+  background-color: var(--pinned-panel-active-colour);
+  color: #000000;
+  border-color: var(--pinned-panel-active-colour);
+}
+
+/* Matching content backgrounds based on active tab */
+.tab-content-blue {
+  background-color: var(--tile-panel-active-colour);
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.tab-content-green {
+  background-color: var(--list-panel-active-colour);
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.tab-content-purple {
+  background-color: var(--week-panel-active-colour);
+  padding: 16px;
+  border-radius: 8px;  
+}
+
+.tab-content-yellow {
+  background-color: var(--pinned-panel-active-colour);
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.event-view-title {
+  display: inline;
+  margin: 0 10px 0 20px;
+  font-size: large;
+}
+
+.week-day-title {
+  margin: 10px 0 10px 30px;
+  font-size: x-large;
+  color: #0c5aad;
+}
+
+.day-view-hr {
+  border: 3px solid #0c5aad ;
+  width: 80%;
+  margin-top: 20px;
+}
+
+/* Pinned View Styling*/
+.pinned-view .card{
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.pinned-view-button-box {
+  display: flex;
+  justify-content: flex-end; /* Aligns items to the right */
+  align-items: center; /* Centers items vertically if needed */
+  margin-bottom: 20px;
+}
+
+.clear-pins-button {
+  padding: 8px 8px;
+  width: 90px; /* Fixed width */
+  min-width: 90px;
+  margin-left: 10px;
+  border: 2px solid rgb(255, 124, 124);
+  border-radius: 5px;
+  background-color: rgb(255, 190, 190);
+  cursor: pointer;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Container styling */
+.list-view {
+  padding: 16px;
+  overflow-x: auto; /* Allows horizontal scroll if content overflows */
+}
+
+/* Table styling */
+.list-table {
+  width: 100%; /* Takes up full width of the container */
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  table-layout: auto; /* Allows for flexible column widths */
+}
+
+.list-table th {
+  padding: 6px;
+  text-align: left;
+  padding-left: 10px;
+  font-size: 15px;
+  border-bottom: 2px solid #c9c7c7;}
+
+.list-table td {
+  padding: 6px;
+  text-align: left;
+  font-size: 13px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Header row styling */
+.list-table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Alternating row color */
+.list-table tbody tr:nth-child(even) {
+  background-color: #ebebeb;
+}
+
+/* Row hover effect */
+.list-table tbody tr:hover {
+  background-color: #f4e3fa;
+}
+.footer {
+  margin-top: 2rem;
+  padding: 0.5rem;
+  background-color: #f4f4f4;
+  text-align: center;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 1rem;
+  color: #555;
+}
+
+.footer-link {
+  margin-left: 5px;
+  text-decoration: none;
+  color: #007bff;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+
