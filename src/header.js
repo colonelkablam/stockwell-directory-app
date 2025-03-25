@@ -1,7 +1,6 @@
 import React from "react";
 import { Link, useLocation  } from "react-router-dom";
 import "./headerStyle.css";
-import { GOOGLE_FORM_INPUT_LINK, GOOGLE_FORM_SUGGESTION_LINK} from "./config";
 
 function Header() {
 
@@ -24,13 +23,15 @@ function Header() {
         >
           About
         </Link>
-        <Link 
-          to={GOOGLE_FORM_INPUT_LINK} className="nav-link"
+        <Link
+          to="/submit-activity"
+          className={`nav-link ${isActive("/submit-activity") ? "active" : ""}`}
         >
           Submit Activity
         </Link>
         <Link
-          to={GOOGLE_FORM_SUGGESTION_LINK} className="nav-link"
+          to="/suggestions"
+          className={`nav-link ${isActive("/suggestions") ? "active" : ""}`}
         >
           Suggestions
         </Link>
