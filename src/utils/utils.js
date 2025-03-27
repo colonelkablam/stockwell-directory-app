@@ -1,5 +1,5 @@
 // utils.js
-import { calculateDistance } from './navUtils';
+import { calculateDistance } from './nav-utils';
 import { MAX_DISTANCE } from "../constants";
 
 
