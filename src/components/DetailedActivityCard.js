@@ -1,8 +1,8 @@
 import React, { useContext, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { MapPin, Clock, User, PoundSterling, Phone, Users, Globe, Map, Pin, ArrowBigLeft, MessageSquareWarning, Printer } from "lucide-react";
-import { ServiceDirectoryContext } from "./serviceDirectoryContext"; // Import the context
-import { togglePin } from './utils.js';
+import { ServiceDirectoryContext } from "../serviceDirectoryContext.js"; // Import the context
+import { togglePin } from '../utils.js';
 import './detailedActivityCardStyle.css';
 
 
