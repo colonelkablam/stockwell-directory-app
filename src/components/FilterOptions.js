@@ -1,7 +1,7 @@
 // FilterOptions.js
 import React from 'react';
-import { toggleFilter } from './utils';
-import { DAYS_OF_WEEK, AUDIENCES, COSTS } from '..constants.js';
+import { toggleFilter } from '../utils/utils.js';
+import { DAYS_OF_WEEK, AUDIENCES, COSTS } from '../constants.js';
 
 const FilterOptions = ({ filterOptions, setFilterOptions }) => {
   

@@ -1,12 +1,12 @@
 import React, { useEffect, useMemo, useContext, useCallback } from 'react';
 import { ServiceDirectoryContext } from "../context/ServiceDirectoryContext.js";
-import './serviceDirectoryStyle.css';
-import { fetchActivities } from '../data.js';
-import { resetFilters, togglePin, applyFilters, clearPinnedActivities} from '../utils.js';
+import './ServiceDirectoryStyle.css';
+import { fetchActivities } from '../api/data.js';
+import { resetFilters, togglePin, applyFilters, clearPinnedActivities} from '../utils/utils.js';
 import { UK_POSTCODE_REGEX} from '../constants.js';
-import { getUserLocation, fetchCoordinatesFromPostcode, calculateDistance } from '../navUtils.js';
-import DistanceFilter from '../components/distanceFilter.js';
-import FilterOptions from '../components/filterOptions.js';
+import { getUserLocation, fetchCoordinatesFromPostcode, calculateDistance } from '../utils/nav-utils.js';
+import DistanceFilter from '../components/DistanceFilter.js';
+import FilterOptions from '../components/FilterOptions.js';
 import TabbedView from '../components/TabbedView.js';
 import Header from "../components/Header.js";
 import Footer from "../components/Footer.js";

@@ -1,5 +1,5 @@
 import React, { createContext, useState, useMemo } from "react";
-import { MAX_DISTANCE } from "..constants.js";
+import { MAX_DISTANCE } from "../constants.js";
 
 export const ServiceDirectoryContext = createContext();
 
