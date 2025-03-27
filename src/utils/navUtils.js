@@ -1,5 +1,5 @@
 // navUtils.js
-import { LONDON_LATITUDE_REGEX, LONDON_LONGITUDE_REGEX } from './constants.js';
+import { LONDON_LATITUDE_REGEX, LONDON_LONGITUDE_REGEX } from '../constants.js';
 
 // Function to get the user's current location
 export function getUserLocation() {

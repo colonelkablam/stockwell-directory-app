@@ -1,6 +1,6 @@
 // TabbedView.js
 import React from 'react';
-import ActivityCard from './activityCard.js';
+import ActivityCard from './ActivityCard.js';
 import { DAYS_OF_WEEK } from '../constants.js';
 
 

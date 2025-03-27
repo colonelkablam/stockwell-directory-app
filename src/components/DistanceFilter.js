@@ -1,8 +1,8 @@
 // DistanceFilter.js
 import React, { useContext } from "react";
 import { Infinity } from 'lucide-react';
-import {MAX_DISTANCE} from './constants.js';
-import { ServiceDirectoryContext } from "./serviceDirectoryContext";
+import {MAX_DISTANCE} from '../constants.js';
+import { ServiceDirectoryContext } from "../context/ServiceDirectoryContext.js";
 
 
 const DistanceFilter = ({ maxDistance, handleSliderMovement, postcode, handlePostcodeChange, postcodeIsValid }) => {

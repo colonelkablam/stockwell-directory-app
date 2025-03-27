@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import ServiceDirectory from "./serviceDirectory";
-import DetailedActivityCard from "./detailedActivityCard";
-import { ServiceDirectoryProvider } from "./serviceDirectoryContext";
-import About from "./about";
-import SubmitActivity from "./submitActivity";
-import SuggestionsBox from "./suggestionsBox";
+import ServiceDirectory from "./pages/ServiceDirectory";
+import DetailedActivityCard from "./components/DetailedActivityCard.js";
+import { ServiceDirectoryProvider } from "./context/ServiceDirectoryContext";
+import About from "./pages/About.js";
+import SubmitActivity from "./pages/SubmitActivity";
+import SuggestionsBox from "./pages/SuggestionsBox";
 
 function App() {
   return (

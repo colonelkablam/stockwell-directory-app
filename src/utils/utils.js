@@ -1,6 +1,6 @@
 // utils.js
 import { calculateDistance } from './navUtils';
-import { MAX_DISTANCE } from "./constants";
+import { MAX_DISTANCE } from "../constants";
 
 
 // Toggle a filter on or off

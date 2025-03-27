@@ -1,6 +1,6 @@
 // data.js
-import { UK_POSTCODE_REGEX, EMAIL_REGEX, PHONE_REGEX } from './constants.js';
-import { isValidLondonCoordinate, fetchCoordinatesFromPostcode } from './navUtils.js';
+import { UK_POSTCODE_REGEX, EMAIL_REGEX, PHONE_REGEX } from '../constants.js';
+import { isValidLondonCoordinate, fetchCoordinatesFromPostcode } from '../utils/navUtils.js';
 
 export async function fetchActivities() {
 
