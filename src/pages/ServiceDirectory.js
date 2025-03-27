@@ -1,6 +1,5 @@
 import React, { useEffect, useMemo, useContext, useCallback } from 'react';
 import { ServiceDirectoryContext } from "../context/ServiceDirectoryContext.js";
-import './ServiceDirectoryStyle.css';
 import { fetchActivities } from '../api/data.js';
 import { resetFilters, togglePin, applyFilters, clearPinnedActivities} from '../utils/utils.js';
 import { UK_POSTCODE_REGEX} from '../constants.js';
@@ -10,8 +9,7 @@ import FilterOptions from '../components/FilterOptions.js';
 import TabbedView from '../components/TabbedView.js';
 import Header from "../components/Header.js";
 import Footer from "../components/Footer.js";
-
-
+import './ServiceDirectoryStyle.css';
 
 
 // Main Component

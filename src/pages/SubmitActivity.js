@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import './SubmitActivityStyle.css';
+
 
 const GOOGLEFORM_SUBMIT_ACTIVITY_URL = `https://docs.google.com/forms/d/e/${process.env.REACT_APP_GOOGLEFORM_SUBMIT_ACTIVITY_ID}/viewform?embedded=true`;
 

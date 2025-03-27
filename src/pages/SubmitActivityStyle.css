@@ -1,0 +1,49 @@
+.password-form {
+    max-width: 400px;
+    margin: 80px auto; /* center on the page with vertical space */
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .password-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+  }
+  
+  .password-form input {
+    width: 100%;
+    padding: 0.7rem;
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+  }
+  
+  .password-form button {
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    background-color: #4a90e2;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .password-form button:hover {
+    background-color: #357ABD;
+  }
+  
+  .password-form p {
+    margin-top: 0.8rem;
+    color: red;
+    font-weight: bold;
+  }
+  

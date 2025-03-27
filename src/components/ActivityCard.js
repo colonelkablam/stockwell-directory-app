@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { MapPin, Clock, User, PoundSterling, Globe, Phone, Users, Footprints, Info, Pin } from 'lucide-react';
+import { MapPin, Clock, User, PoundSterling, Globe, Phone, Users, Footprints, InfoIcon, Pin } from 'lucide-react';
 import { useNavigate } from "react-router-dom";
 
 function ActivityCard({ activity, togglePin, pinnedActivities, distanceEnabled }) {
@@ -39,7 +39,7 @@ function ActivityCard({ activity, togglePin, pinnedActivities, distanceEnabled }
             //onClick={(e) => e.stopPropagation()} // Prevent event propagation
             title="See a more detailed view of activity"
           >
-            <Info size={28} className="info-icon" />
+            <InfoIcon size={28} className="info-icon" />
           </div>
 
           {/* Title */}
