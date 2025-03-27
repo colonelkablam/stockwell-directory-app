@@ -1,12 +1,12 @@
 // data.js
 import { UK_POSTCODE_REGEX, EMAIL_REGEX, PHONE_REGEX } from '../constants.js';
-import { isValidLondonCoordinate, fetchCoordinatesFromPostcode } from '../utils/navUtils.js';
+import { isValidLondonCoordinate, fetchCoordinatesFromPostcode } from '../utils/nav-utils.js';
 
 export async function fetchActivities() {
 
   try {
     //const response = await fetch(url);
-    const response = await fetch("/.netlify/functions/fetchSheet"); // Call your function
+    const response = await fetch("/.netlify/functions/fetch-sheet"); // Call your function
 
     const data = await response.json();
 

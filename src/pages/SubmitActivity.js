@@ -12,7 +12,7 @@ function SubmitActivity() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("/.netlify/functions/validatePassword", {
+      const res = await fetch("/.netlify/functions/validate-password", {
         method: "POST",
         body: JSON.stringify({ password }),
       });
