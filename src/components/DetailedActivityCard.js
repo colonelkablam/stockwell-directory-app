@@ -4,7 +4,6 @@ import { MapPin, Clock, User, PoundSterling, Phone, Users, Globe, Map, Pin, Arro
 import { ServiceDirectoryContext } from "./serviceDirectoryContext"; // Import the context
 import { togglePin } from './utils.js';
 import './detailedActivityCardStyle.css';
-import { GOOGLEMAP_API_KEY } from "./config.js";
 
 
 function DetailedActivityCard() {
@@ -90,10 +89,10 @@ function DetailedActivityCard() {
         {activity.lat && activity.long ? (
           <iframe
             title="Activity Location Map"
-            src={`https://www.google.com/maps/embed/v1/place?key=${GOOGLEMAP_API_KEY}&q=${activity.lat},${activity.long}&zoom=15`}
+            src={`https://www.openstreetmap.org/export/embed.html?bbox=${activity.long - 0.01}%2C${activity.lat - 0.01}%2C${activity.long + 0.01}%2C${activity.lat + 0.01}&layer=mapnik&marker=${activity.lat}%2C${activity.long}`}
+            style={{ border: 0, width: "100%", height: "300px" }}
             allowFullScreen
             loading="lazy"
-            style={{ border: 0, width: "100%", height: "300px" }}
           ></iframe>
         ) : (
           <p>
@@ -103,10 +102,9 @@ function DetailedActivityCard() {
         )}
       </div>
       <div className="warning-text-box">
-          <MessageSquareWarning className="warning-icon" size={20}/>
-          <p>pin locations are based on a postcode or location data provided by users, please check location is correct before attending</p>
+        <MessageSquareWarning className="warning-icon" size={20} />
+        <p>Pin locations are based on a postcode or location data provided by users. Please check the location is correct before attending.</p>
       </div>
-
 
       <div className="detailed-content">
         {/* Detailed Description */}

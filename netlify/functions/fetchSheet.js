@@ -6,8 +6,8 @@ exports.handler = async (event, context) => {
 
   // Use secrets in environment variables
   const SHEET_API_KEY = process.env.STOCKWELL_GOOGLESHEET_API_KEY; 
-  const SHEET_ID = process.env.STOCKWELL_SHEET_ID;
-  const SHEET_NAME = process.env.STOCKWELL_SHEET_NAME;
+  const SHEET_ID = process.env.STOCKWELL_GOOGLESHEET_ID;
+  const SHEET_NAME = process.env.STOCKWELL_GOOGLESHEET_NAME;
 
 
   try {
